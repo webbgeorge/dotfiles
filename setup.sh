@@ -3,7 +3,7 @@
 set -e
 
 sudo dnf -y upgrade
-sudo dnf -y install alacritty stow curl unzip ripgrep fzf fd-find git jq zsh cargo
+sudo dnf -y install alacritty stow curl unzip ripgrep fzf fd-find git jq zsh cargo tmux
 
 # Install editor font
 mkdir -p ~/.local/share/fonts/JetBrainsMono
@@ -43,5 +43,5 @@ mv ~/.zshrc ~/.zshrc.bak
 chsh -s $(which zsh)
 
 # Sync dotfiles
-stow neovim alacritty zsh git -t ~
-
+mkdir -p ~/.local/bin
+stow neovim alacritty zsh git tmux -t ~

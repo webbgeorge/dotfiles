@@ -1,11 +1,17 @@
 [window]
 
-padding.x = 5
-padding.y = 5
+padding.x = 0
+padding.y = 0
+decorations = "Full"
+startup_mode = "Maximized"
 
 [font]
 
 size = 18.0
+
+[font.offset]
+x = 1
+y = 2
 
 [font.normal]
 family = "JetBrainsMono NF"
@@ -23,3 +29,10 @@ style = "Italic"
 family = "JetBrainsMono NF"
 style = "Bold Italic"
 
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left", mods = "Alt", chars = "\u001BB" },
+  { key = "V", mods = "Control", action = "Paste" },
+  { key = "N", mods = "Control", action = "SpawnNewInstance" },
+]

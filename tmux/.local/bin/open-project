@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+if [[ $# != 1 ]]; then
+  echo "$0 <project>"
+  exit 1
+fi
+
+PROJECT=$1
+PROJECT_DIR="$HOME/workspace/$PROJECT"
+
+if [[ ! -d "$PROJECT_DIR" ]]; then
+  read -p "The directory '$PROJECT_DIR' doesn't exist. Create directory? [y/n] " -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    exit 1
+  fi
+  mkdir -p $PROJECT_DIR
+fi
+
+tmux new-session -d -s $PROJECT -c $PROJECT_DIR -n editor "nvim ." || true
+tmux new-window -d -t "${PROJECT}:" -c $PROJECT_DIR -n server
+tmux new-window -d -t "${PROJECT}:" -c $PROJECT_DIR -n cmd
+tmux switch-client -t $PROJECT

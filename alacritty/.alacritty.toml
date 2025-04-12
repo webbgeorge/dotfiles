@@ -1,12 +1,10 @@
 [window]
-
 padding.x = 0
 padding.y = 0
 decorations = "Full"
 startup_mode = "Maximized"
 
 [font]
-
 size = 18.0
 
 [font.offset]

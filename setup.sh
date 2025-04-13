@@ -3,7 +3,7 @@
 set -e
 
 sudo dnf -y upgrade
-sudo dnf -y install alacritty stow curl unzip ripgrep fzf fd-find git jq zsh cargo tmux podman
+sudo dnf -y install alacritty stow curl unzip ripgrep fzf fd-find git jq zsh cargo tmux podman podman-compose
 
 # Install editor font
 mkdir -p ~/.local/share/fonts/JetBrainsMono
@@ -26,6 +26,9 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install node
 nvm use node
+
+# Install pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 # Install nvim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz

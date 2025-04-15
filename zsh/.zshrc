@@ -3,7 +3,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:/opt/nvim-linux-x86_64/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.cargo/bin
+export PATH=$PATH:/opt/nvim-linux-x86_64/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin
 
 source <(fzf --zsh)
 

@@ -3,7 +3,7 @@
 set -e
 
 sudo dnf -y upgrade
-sudo dnf -y install alacritty stow curl unzip ripgrep fzf fd-find git jq zsh cargo tmux podman podman-compose postgres
+sudo dnf -y install alacritty stow curl unzip ripgrep fzf fd-find git jq zsh cargo tmux podman podman-compose postgres sqlite
 
 # Install editor font
 mkdir -p ~/.local/share/fonts/JetBrainsMono

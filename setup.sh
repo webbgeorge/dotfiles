@@ -39,6 +39,9 @@ rm nvim-linux-x86_64.tar.gz
 # Install tree-sitter-cli for nvim
 cargo install --locked tree-sitter-cli
 
+# Install Ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
 # Setup zsh
 rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended

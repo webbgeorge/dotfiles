@@ -21,7 +21,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-alias docker=podman
 export EDITOR=nvim
 export VISUAL=nvim
 

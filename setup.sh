@@ -3,7 +3,7 @@
 set -e
 
 sudo dnf -y upgrade
-sudo dnf -y install alacritty stow curl unzip ripgrep fzf fd-find git jq zsh cargo tmux podman podman-compose postgres sqlite
+sudo dnf -y install alacritty stow curl unzip ripgrep fzf fd-find git jq zsh cargo tmux podman podman-docker podman-compose postgres sqlite
 
 # Install editor font
 mkdir -p ~/.local/share/fonts/JetBrainsMono
@@ -19,6 +19,7 @@ curl -O -L "https://go.dev/dl/go${GO_VERSION}.linux-${GO_ARCH}.tar.gz"
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf go${GO_VERSION}.linux-${GO_ARCH}.tar.gz
 rm go${GO_VERSION}.linux-${GO_ARCH}.tar.gz
+go install github.com/go-delve/delve/cmd/dlv@latest
 
 # Install Node.js
 PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash'

@@ -25,15 +25,17 @@ esac
 export EDITOR=nvim
 export VISUAL=nvim
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux new-session -A -s main
-fi
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  export PATH=$PATH:$HOME/Library/Python/3.9/bin
+  export PATH=$PATH:$HOME/Library/Python/3.9/bin:/opt/homebrew/bin
   export CF_PEM_LOCATION=/Library/Application\ Support/Cloudflare/installed_cert.pem
   export NODE_EXTRA_CA_CERTS=$CF_PEM_LOCATION
   export AWS_CA_BUNDLE=$CF_PEM_LOCATION
   export REQUESTS_CA_BUNDLE=$CF_PEM_LOCATION
   export SSL_CERT_FILE=$CF_PEM_LOCATION
 fi
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux new-session -A -s main
+fi
+
+

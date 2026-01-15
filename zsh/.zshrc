@@ -14,7 +14,8 @@ export NVM_DIR="$HOME/.nvm"
 #nvm end
 
 # pnpm
-export PNPM_HOME="/home/georgewebb/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+mkdir -p $PNPM_HOME
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -26,4 +27,13 @@ export VISUAL=nvim
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux new-session -A -s main
+fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH=$PATH:$HOME/Library/Python/3.9/bin
+  export CF_PEM_LOCATION=/Library/Application\ Support/Cloudflare/installed_cert.pem
+  export NODE_EXTRA_CA_CERTS=$CF_PEM_LOCATION
+  export AWS_CA_BUNDLE=$CF_PEM_LOCATION
+  export REQUESTS_CA_BUNDLE=$CF_PEM_LOCATION
+  export SSL_CERT_FILE=$CF_PEM_LOCATION
 fi
